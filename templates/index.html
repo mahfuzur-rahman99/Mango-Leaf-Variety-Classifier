@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Mango Leaf Variety Classifier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- VERY IMPORTANT: Flask static links -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="card">
+
+            <!-- Header -->
+            <header class="header">
+                <h1>Mango Leaf Variety Classifier</h1>
+                <p>Upload a mango leaf image to identify its variety using Deep Learning</p>
+            </header>
+
+            <!-- Supported Classes -->
+            <section class="chips-section">
+                <h2>Supported Varieties</h2>
+                <div class="chips">
+                    <span class="chip">Amrapali</span>
+                    <span class="chip">Banana</span>
+                    <span class="chip">Bandigori</span>
+                    <span class="chip">Brunei King</span>
+                    <span class="chip">Harivanga</span>
+                    <span class="chip">Himsagar</span>
+                    <span class="chip">Kacha Mitha</span>
+                    <span class="chip">Surjapuri</span>
+                </div>
+            </section>
+
+            <!-- Main content: Upload + Prediction -->
+            <section class="content">
+
+                <!-- Upload Area -->
+                <div class="upload-card">
+                    <div id="drop-zone" class="drop-zone">
+                        <div class="drop-icon">🖼️</div>
+                        <p class="drop-title">Drag &amp; Drop image here</p>
+                        <p class="drop-subtitle">or click the button to select a file</p>
+
+                        <input id="file-input" type="file" accept="image/*" hidden />
+                        <button id="browse-btn" class="btn-primary">Browse Image</button>
+                    </div>
+
+                    <div id="preview-container" class="preview hidden">
+                        <p class="preview-title">Selected Image</p>
+                        <img id="preview-image" alt="Preview" />
+                    </div>
+                </div>
+
+                <!-- Prediction Area -->
+                <div class="prediction-card">
+                    <div class="prediction-inner">
+                        <div class="prediction-icon">📊</div>
+                        <p id="prediction-title" class="prediction-title">
+                            Waiting for image...
+                        </p>
+                        <p id="prediction-subtitle" class="prediction-subtitle">
+                            Upload a mango leaf image to see the predicted variety and confidence.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
